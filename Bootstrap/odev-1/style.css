@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+a, button, form, .card-title{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card, .jumbotron{
+    font-family: 'Playfair Display', serif;
+}
+
+body{
+    background-color: #E9ECEF;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    padding: 2px;
+    background-color: #00C3FF;
+    border-radius: 50%;
+}
+
+.jumbotron{
+    border-radius: 0;
+    background-color: #8D8DAA;
+    font-style: italic;
+}
+
+.hk-color{
+    background-color: #F7F5F2;
+}
