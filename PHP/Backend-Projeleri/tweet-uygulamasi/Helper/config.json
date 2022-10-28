@@ -1,0 +1,13 @@
+{
+    "db": {
+        "server": "127.0.0.1",
+        "username": "root",
+        "password": "asdf",
+        "name": "patika",
+        "prefix": "tweet_"
+    },
+    "app": {
+        "title": "Tweeet Uygulaması",
+        "base_url": "http://localhost/Backend-Projeleri/tweet-uygulamasi"
+    }
+}
