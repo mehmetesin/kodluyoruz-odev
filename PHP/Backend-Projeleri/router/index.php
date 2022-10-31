@@ -12,8 +12,14 @@ $router->get('/about', function () {
     echo '<h1>About Page</h1>';
 });
 
-$router->post('/blog/([0-9]+)', function ($id) {
+
+$router->get('/blog/([0-9]+)', function ($id) {
     echo 'blog id: ' . $id;
+});
+
+$router->post('/blog', function () {
+    echo '<pre>';
+    print_r($_POST);
 });
 
 $router->run();

@@ -1,13 +1,17 @@
-create table tweet_users(
-	id int not null auto_increment primary key,
-	first_name varchar(100),
-	last_name varchar(100),
-	username varchar(200),
-	password varchar(200)
-);
+CREATE TABLE `tweet_posts` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`user_id` INT(11) NULL DEFAULT NULL,
+	`post` VARCHAR(180) NULL DEFAULT NULL,
+	`created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
 
-create table tweet_posts(
-	id int not null auto_increment primary key,
-	user_id int,
-	post varchar(180)
+CREATE TABLE `tweet_users` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name_surname` VARCHAR(200) NULL DEFAULT NULL,
+	`username` VARCHAR(200) NULL DEFAULT NULL,
+	`password` VARCHAR(200) NULL DEFAULT NULL,
+	`email` VARCHAR(100) NULL DEFAULT NULL,
+	`created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
 )

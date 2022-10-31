@@ -43,7 +43,9 @@ class Router
         $find = false;
 
         $req_method = strtolower($_SERVER['REQUEST_METHOD']);
-        $request = '/' . preg_replace('#^\/[a-zA-Z-_[0-9]+\/#', '', $_SERVER['REQUEST_URI']);
+        $basedir = dirname($_SERVER['SCRIPT_NAME']);
+        $uri = $_SERVER['REQUEST_URI'];
+        $request = str_replace($basedir, '', $uri);
         foreach ($this->routes[$req_method] as $path => $callback) {
             if (preg_match("#^{$path}$#", $request, $mathes)) {
 

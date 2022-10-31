@@ -35,7 +35,7 @@ $router->get('/about', function () {
 
 ### Regex ile parametre kullanımı
 ```php
-$router->post('/blog/([0-9]+)', function ($id) {
+$router->get('/blog/([0-9]+)', function ($id) {
     echo 'blog id: ' . $id;
 });
 ```
