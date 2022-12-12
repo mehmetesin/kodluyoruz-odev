@@ -1,6 +1,6 @@
 <?php
 
-namespace m_esin;
+namespace mEsin\Core;
 
 class Router
 {
@@ -46,10 +46,13 @@ class Router
         $basedir = dirname($_SERVER['SCRIPT_NAME']);
         $uri = $_SERVER['REQUEST_URI'];
         $request = str_replace($basedir, '', $uri);
+        // $request = preg_replace('#/[0-9]+$#', '', $request);
+        // exit($request);
         foreach ($this->routes[$req_method] as $path => $callback) {
             if (preg_match("#^{$path}$#", $request, $mathes)) {
                 unset($mathes[0]);
                 $params = $mathes;
+
                 $find = true;
                 if (is_callable($callback)) {
                     call_user_func_array($callback, $params);
@@ -67,7 +70,7 @@ class Router
                     }
 
                     if (method_exists($controller_name, $method)) {
-                        call_user_func([new $controller_name, $method]);
+                        call_user_func([new $controller_name, $method], $params);
                         break;
                     } else {
                         $find = false;
@@ -76,7 +79,11 @@ class Router
             }
         }
         if (!$find) {
-            echo '<h1>Sayfa bulunamadı!</h1>';
+            // echo '<h1>Sayfa bulunamadı!</h1>';
+            $controller_file_name =  $this->controller_path . DIRECTORY_SEPARATOR . '_404' . '.php';
+            $controller_name = $this->prefix . '\\' . $this->controller_path . '\\' . '_404';
+            include_once($controller_file_name);
+            call_user_func([new $controller_name, 'index']);
         }
     }
 }
