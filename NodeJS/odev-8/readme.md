@@ -1,4 +1,4 @@
-## Ödev 7 - Clean Blog Proje 1. Bölüm
+## Ödev 8 - Clean Blog Proje 8. Bölüm
 
 ```js
 
